@@ -1,4 +1,3 @@
-
 const input = require('readline-sync');
 
 // TODO 2: modify your quiz app to ask 5 questions //
@@ -11,12 +10,14 @@ let question = "Who was the first American woman in space? ";
 let correctAnswer = "Sally Ride";
 let candidateAnswer = '';
 let questions = [
-   "Who was the first American woman in space? ",
-   "True or false: 5 kilometer == 5000 meters? ", 
-   "(5 + 3)/2 * 10 = ? ",
-   "Given the array [8, 'Orbit', 'Trajectory', 45], what entry is at index 2? ", 
-   "What is the minimum crew size for the ISS? "];
-let correctAnswers = ["Sally Ride","True", "40", "Trajectory", "3"];
+  "Who was the first American woman in space? ",
+  "True or false: 5 kilometer == 5000 meters? ",
+  "(5 + 3)/2 * 10 = ? ",
+  "Given the array [8, 'Orbit', 'Trajectory', 45], what entry is at index 2? ",
+  "What is the minimum crew size for the ISS? "
+];
+let correctAnswers = ["Sally Ride", "true", "40", "Trajectory", "3"];
+
 let candidateAnswers = [];
 function askForName() {
   // TODO 1.1b: Ask for candidate's name //
@@ -31,7 +32,7 @@ function askQuestion() {
     answers = input.question(questions[i]);
     candidateAnswers.push(answers);    
   }
-  console.log(candidateAnswers);
+ // console.log(candidateAnswers);
  
 }
 function gradeQuiz(candidateAnswers){
@@ -42,17 +43,20 @@ function gradeQuiz(candidateAnswers){
    {
 numberOfCorrectAnswer++
  }
+ console.log();
  console.log(`${questions[i]}`);
  console.log('Your Answer: ', candidateAnswers[i]);
- console.log('Correct Answer: ', correctAnswers[i]);
+ console.log('Correct Answer: ', candidateAnswers[i]);
  }
  grade =(numberOfCorrectAnswer / questions.length) * 100;
- console.log(grade);
- console.log(`GRADE: ${grade} % ${numberOfCorrectAnswer} of ${questions.length}`);
- if (grade >= 80){
-   console.log("PASS!");
-  } else if (grade <= 80) {
- console.log("FAIL!");}
+ console.log();
+   console.log(`>>> Overall Grade: ${grade}% (${numberOfCorrectAnswer} of ${questions.length} correct) <<<`);
+ if (grade >= 80) {
+    console.log(`>>> Status: PASSED <<<`);
+  } else {
+    console.log(`>>> Status: FAILED <<<`);
+  }
+
  return grade;
 }
  
