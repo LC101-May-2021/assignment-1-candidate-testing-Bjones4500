@@ -44,7 +44,7 @@ numberOfCorrectAnswer++
  }
  console.log(`${questions[i]}`);
  console.log('Your Answer: ', candidateAnswers[i]);
- console.log('Correct Answer: ', candidateAnswers[i]);
+ console.log('Correct Answer: ', correctAnswers[i]);
  }
  grade =(numberOfCorrectAnswer / questions.length) * 100;
  console.log(grade);
