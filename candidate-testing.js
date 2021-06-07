@@ -36,19 +36,19 @@ function askQuestion() {
 }
 function gradeQuiz(candidateAnswers){
  let grade = 0
- let correctAnsNumber = 0
+ let numberOfCorrectAnswer = 0
  for(let i=0; i < questions.length; i++){
    if ((correctAnswers[i]).toLowerCase()==(candidateAnswers[i]).toLowerCase())
    {
-correctAnsNumber++
+numberOfCorrectAnswer++
  }
  console.log(`${questions[i]}`);
  console.log('Your Answer: ', candidateAnswers[i]);
  console.log('Correct Answer: ', candidateAnswers[i]);
  }
- grade =(correctAnsNumber / questions.length) * 100;
+ grade =(numberOfCorrectAnswer / questions.length) * 100;
  console.log(grade);
- console.log(`GRADE: ${grade} % ${correctAnsNumber} of ${questions.length}`);
+ console.log(`GRADE: ${grade} % ${numberOfCorrectAnswer} of ${questions.length}`);
  if (grade >= 80){
    console.log("PASS!");
   } else if (grade <= 80) {
