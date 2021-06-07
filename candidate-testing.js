@@ -1,5 +1,3 @@
-
-// Kyle added this line
 const input = require('readline-sync');
 
 // TODO 2: modify your quiz app to ask 5 questions //
@@ -8,9 +6,7 @@ let candidateName = '' ;
 
 // TODO 1.2a: Define question, correctAnswer, and candidateAnswer //
 
-const input = require('readline-sync');
-let candidateName = '';
-let question = ("1. Who was the first American woman in space? ");
+let question = "1. Who was the first American woman in space? ";
 let correctAnswer = "Sally Ride";
 let candidateAnswer = '';
 let questions = [
@@ -29,62 +25,43 @@ function askForName() {
 
 function askQuestion() {
   // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
-  let answer = "";
+  let answers = "";
   for (let i = 0; i < questions.length; i++){ 
-    answer = input.question(questions[i]);
-    candidateAnswers.push(input);    
-}
+    answers = input.question(questions[i]);
+    candidateAnswers.push(answers);    
+  }
+  console.log(candidateAnswers);
+ 
 }
 function gradeQuiz(candidateAnswers){
-  let candidateAnswers = Number(answer);
+ let grade = 0
+ let correctAnswersNumber = 0
+ for(let i=0; i < correctAnswers.length; i++){
+   if ((correctAnswers[i]).toLowerCase()==(candidateAnswers[i]).toLowerCase())
+   {
+correctAnswersNumber++
+ }
+ console.log(`${questions[i]}`);
+ console.log('Your Answer: ', candidateAnswers[i]);
+ console.log('Correct Answer: ', candidateAnswers[i]);
+ }
+ grade =((correctAnswersNumber) / (questions.length)) * 100;
+ console.log(grade);
+ console.log(`Total Grade: ${grade}%(${correctAnswersNumber} of ${questions.length} responses correct`);
+ if (grade < 80){
+   console.log("FAILED!");
+ } else
+ console.log("PASS!");
+ return grade;
 }
-     
-// function gradeQuiz(candidateAnswers) {
-//   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
-//   //console.log(correctAnswer);
-//   //console.log(candidateAnswer);
-// let correctA = candidateAnswer[0] + correctAnswer[0];
-// if (correctA = true + 'Correct') {
-  
-// }else (correctA != false + 'Incorrect') 
-//   //console.log("Incorrect");
  
-//   let correctB = candidateAnswers[0] + correctAnswers[0];
-// if (correctB == true) {
-//     console.log("Correct");}  
-// else if (correctB == false) {
-//   console.log("Incorrect");
-//  }
-//  let candMarks = candidateAnswers+candidateAnswers;
-//  let corrMarks = correctAnswer + correctAnswers.length * 100;
-//  var grade = 0;
-//  for (var i = 0; i < corrMarks.length; i++){
-//    grade += corrMarks[i];
-//    var gradeAvg = (grade/correctAnswer/correctAnswers.length);
-//  }
-//  //console.log("Grade: " + (grade)/ correctAnswer/correctAnswers.length);
-//  if (grade => 80 + 'PASS!'){
-//        //console.log("PASS!");}
-//         }else if (grade => 80 + 'FAIL!'){
-//           //console.log("FAIL!");
-//         }
-// }
-// }
-function runProgram() {
+  function runProgram() {
   askForName();
   askQuestion();
-  // askQuestions();
-  //gradeQuiz(this.candidateAnswers);
+  //askQuestions();
+  gradeQuiz(this.candidateAnswers);
 }
- //var grade =  (candidateAnswer + candidateAnswers / question + questions.lenghth);
-      //console.log(grade);
-     // console.log(grade * 100);
-      //if ([grade * 100] > [8 * 100]){
-       // console.log("PASS!");}
-        //else if ([grade * 100] > [8* 100]){
-          //console.log("FAIL!");
-        //}
-
+ 
 // Don't write any code below this line //
 // And don't change these or your program will not run as expected //
 module.exports = {
