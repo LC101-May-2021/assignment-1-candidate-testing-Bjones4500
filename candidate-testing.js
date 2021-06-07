@@ -34,25 +34,25 @@ function askQuestion() {
  
 }
 function gradeQuiz(candidateAnswers){
- let grade = 0
- let correctAnswersNumber = 0
- for(let i=0; i < correctAnswers.length; i++){
+ let point = 0
+ let correctAnsNumber = 0
+ for(let i=0; i < questions.length; i++){
    if ((correctAnswers[i]).toLowerCase()==(candidateAnswers[i]).toLowerCase())
    {
-correctAnswersNumber++
+correctAnsNumber++
  }
  console.log(`${questions[i]}`);
  console.log('Your Answer: ', candidateAnswers[i]);
  console.log('Correct Answer: ', candidateAnswers[i]);
  }
- grade =((correctAnswersNumber) / (questions.length)) * 100;
- console.log(grade);
- console.log(`Total Grade: ${grade}%(${correctAnswersNumber} of ${questions.length} responses correct`);
- if (grade < 80){
-   console.log("FAILED!");
- } else
- console.log("PASS!");
- return grade;
+ grade =(correctAnsNumber / questions.length) * 100;
+ console.log(point);
+ console.log(`POINTS: ${point} % ${correctAnsNumber} of ${questions.length}`);
+ if (point >= 80){
+   console.log("PASS!");
+  } else if (point <=80) {
+ console.log("FAIL!");}
+ return point;
 }
  
   function runProgram() {
